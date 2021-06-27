@@ -1,0 +1,37 @@
+<br>
+<div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> the product {{name}} is successfully added to your panel
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div style="text-align: right;">
+<button routerLink="/addProduct" class="btn btn-primary" >Add New Article</button>
+</div>
+
+<div  class="row view-group">
+
+<div *ngFor="let product of products" class="item col-xs-4 col-lg-4">
+  <br>
+  <div class="thumbnail card">
+      <div class="caption card-body">
+          <h4 class="group card-title inner list-group-item-heading">
+              {{product.nameProduct}}</h4>
+              <p class="group inner list-group-item-text">
+                {{product.details}}</p>
+                <p class="group inner list-group-item-text">
+                  category: {{product.category.nameCategory}}</p>
+          <div class="row">
+              <div class="col-xs-12 col-md-6">
+                  <p class="lead">
+                      ${{product.price}}</p>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                  <a class="btn btn-success" (click)="addProductToPanel(product.id)" >Add to panel</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
